@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Emoji tester</title>
+    <style>
+      :root {
+        --accent: rgb(253, 102, 113);
+        --border: #88f;
+        --background: #334;
+        --foreground: #fcfcfc;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+
+      html {
+        background-color: var(--background);
+        color: var(--foreground);
+        overflow: hidden;
+
+        font-family: "Inter";
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+
+      a {
+        color: var(--accent);
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      header {
+        display: flex;
+        place-items: baseline;
+      }
+
+      h1,
+      h2 {
+        margin: 0;
+      }
+
+      h2 {
+        margin-left: auto;
+      }
+
+      header, main {
+        margin-inline: 0.5rem;
+      }
+
+      main {
+        flex: 1;
+        display: flex;
+        height: auto;
+        margin-block-end: 0.5rem;
+        gap: 0.5rem;
+      }
+
+      .emoji {
+        display: inline-block;
+        width: 1em;
+
+        color: transparent;
+        text-align: center;
+
+        background-size: 1em;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      output {
+        white-space: pre-wrap;
+        overflow-wrap: break-word;
+      }
+
+      textarea,
+      output {
+        flex: 1;
+
+        padding: 5px;
+        margin: 0;
+
+        font-size: 1.5rem;
+        font-family: monospace;
+
+        color: var(--foreground);
+        background: transparent;
+
+        border: 1px solid var(--border);
+
+        box-sizing: border-box;
+
+        overflow: auto;
+      }
+
+      @media (max-aspect-ratio: 8/5) {
+        main {
+          flex-direction: column;
+        }
+      }
+    </style>
+    <script type="module" src="./index.js" defer></script>
+  </head>
+
+  <header>
+    <h1>Emoji Tester</h1>
+    <h2>
+      Mutant Remix
+      <a href="https://mutant.revolt.chat" rel="noopener" target="_blank">(by Revolt)</a>
+    </h2>
+  </header>
+  <main>
+    <textarea id="input" aria-label="emoji input testing area">
+Hello there! 😃
+This is a test for parsing, transforming, and rendering emoji.
+Check it out: ✨✨✨</textarea
+    >
+    <output id="output"></output>
+  </main>
+</html>
