@@ -49,14 +49,18 @@
       h1,
       h2 {
         margin: 0;
+        flex: 1;
       }
 
-      h2 {
-        margin-left: auto;
-      }
-
-      header, main {
+      header,
+      main {
         margin-inline: 0.5rem;
+      }
+
+      form {
+        display: flex;
+        flex: 1;
+        flex-wrap: wrap;
       }
 
       main {
@@ -68,6 +72,8 @@
       }
 
       .emoji {
+        --emoji-url: none;
+
         display: inline-block;
         width: 1em;
 
@@ -77,6 +83,7 @@
         background-size: 1em;
         background-position: center;
         background-repeat: no-repeat;
+        background-image: var(--emoji-url);
       }
 
       output {
@@ -115,10 +122,43 @@
 
   <header>
     <h1>Emoji Tester</h1>
-    <h2>
-      Mutant Remix
-      <a href="https://mutant.revolt.chat" rel="noopener" target="_blank">(by Revolt)</a>
-    </h2>
+    <form id="styleForm">
+      <div>
+        <input id="mutant" type="radio" name="emoji style" value="mutant" checked/>
+        <label for="mutant">
+          <bree-moji data-emoji="😃" data-style="mutant"></bree-moji>
+          Mutant Remix
+          <a href="https://mutant.revolt.chat" rel="noopener" target="_blank">
+            (by Revolt)
+          </a>
+        </label>
+      </div>
+      <div>
+        <input id="twemoji" type="radio" name="emoji style" value="twemoji" />
+        <label for="twemoji">
+          <bree-moji data-emoji="😃" data-style="twemoji"></bree-moji>
+          Twemoji
+        </label>
+      </div>
+      <div>
+        <input id="noto" type="radio" name="emoji style" value="noto" /><label
+          for="noto"
+          ><bree-moji data-emoji="😃" data-style="noto"></bree-moji>Noto
+          Emoji</label
+        >
+      </div>
+      <div>
+        <input
+          id="openmoji"
+          type="radio"
+          name="emoji style"
+          value="openmoji"
+        /><label for="openmoji"
+          ><bree-moji data-emoji="😃" data-style="openmoji"></bree-moji
+          >Openmoji</label
+        >
+      </div>
+    </form>
   </header>
   <main>
     <textarea id="input" aria-label="emoji input testing area">
