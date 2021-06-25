@@ -66,7 +66,8 @@
       main {
         flex: 1;
         display: flex;
-        height: auto;
+        height: 100%;
+        overflow: hidden;
         margin-block-end: 0.5rem;
         gap: 0.5rem;
       }
@@ -74,7 +75,7 @@
       .emoji {
         --emoji-url: none;
 
-        display: inline-block;
+        display: inline-grid;
         width: 1em;
 
         color: transparent;
@@ -84,6 +85,10 @@
         background-position: center;
         background-repeat: no-repeat;
         background-image: var(--emoji-url);
+
+        overflow: hidden;
+        text-overflow: clip;
+        white-space: nowrap;
       }
 
       output {
@@ -164,7 +169,11 @@
     <textarea id="input" aria-label="emoji input testing area">
 Hello there! 😃
 This is a test for parsing, transforming, and rendering emoji.
-Check it out: ✨✨✨</textarea
+Check it out: ✨✨✨
+🏳‍🌈􁚁􁙺􁙹􁙴􁙽􁙷
+✋􁙐
+🤝&#1054289;&#1054238;
+</textarea
     >
     <output id="output"></output>
   </main>

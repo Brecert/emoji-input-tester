@@ -1,5 +1,4 @@
-import { EMOJI as E } from "https://jspm.dev/unicode-emoji-regex";
-const EMOJI = new RegExp(E.source, "gu");
+import { EMOJI, MUTANT_EMOJI } from "./emoji.js";
 
 const input = document.getElementById("input");
 const output = document.getElementById("output");
@@ -15,7 +14,7 @@ const state = {
 
 styleForm.oninput = (e) => {
   state.emojiStyle = styleForm.elements.namedItem("emoji style").value;
-  update()
+  update();
 };
 
 /** @param {string} emoji */
@@ -44,7 +43,7 @@ const Emoji = ({ emoji, style = state.emojiStyle } = {}) => {
 
 /** @param {string} text */
 function parseEmojis(text) {
-  let matches = text.matchAll(EMOJI) ?? [];
+  let matches = text.matchAll(state.emojiStyle === "mutant" ? MUTANT_EMOJI : EMOJI) ?? [];
   let output = [];
   let lastPos = 0;
   for (let match of matches) {
