@@ -9,6 +9,12 @@
         --border: #88f;
         --background: #334;
         --foreground: #fcfcfc;
+
+        --line-height: 2rem;
+      }
+
+      * {
+        line-height: var(--line-height);
       }
 
       html,
@@ -73,22 +79,18 @@
       }
 
       .emoji {
-        --emoji-url: none;
-
         display: inline-grid;
-        width: 1em;
+        vertical-align: middle;
 
-        color: transparent;
-        text-align: center;
-
-        background-size: 1em;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-image: var(--emoji-url);
+        height: var(--line-height);
+        width: auto;
 
         overflow: hidden;
-        text-overflow: clip;
-        white-space: nowrap;
+      }
+
+      picture img {
+        width: inherit;
+        height: inherit;
       }
 
       output {
@@ -129,7 +131,13 @@
     <h1>Emoji Tester</h1>
     <form id="styleForm">
       <div>
-        <input id="mutant" type="radio" name="emoji style" value="mutant" checked/>
+        <input
+          id="mutant"
+          type="radio"
+          name="emoji style"
+          value="mutant"
+          checked
+        />
         <label for="mutant">
           <bree-moji data-emoji="😃" data-style="mutant"></bree-moji>
           Mutant Remix
@@ -146,22 +154,18 @@
         </label>
       </div>
       <div>
-        <input id="noto" type="radio" name="emoji style" value="noto" /><label
-          for="noto"
-          ><bree-moji data-emoji="😃" data-style="noto"></bree-moji>Noto
-          Emoji</label
-        >
+        <input id="noto" type="radio" name="emoji style" value="noto" />
+        <label for="noto">
+          <bree-moji data-emoji="😃" data-style="noto"></bree-moji>
+          Noto Emoji
+        </label>
       </div>
       <div>
-        <input
-          id="openmoji"
-          type="radio"
-          name="emoji style"
-          value="openmoji"
-        /><label for="openmoji"
-          ><bree-moji data-emoji="😃" data-style="openmoji"></bree-moji
-          >Openmoji</label
-        >
+        <input id="openmoji" type="radio" name="emoji style" value="openmoji" />
+        <label for="openmoji">
+          <bree-moji data-emoji="😃" data-style="openmoji"> </bree-moji>
+          Openmoji
+        </label>
       </div>
     </form>
   </header>

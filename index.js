@@ -28,17 +28,20 @@ const codepointString = (emoji) =>
 
 /** @param {string} text */
 const Emoji = ({ emoji, style = state.emojiStyle } = {}) => {
-  let el = document.createElement("span");
-  el.classList.add("emoji");
-  el.textContent = emoji;
+  const pic = document.createElement("picture");
+  const img = document.createElement('img')
+  img.height = 24;
+  img.width = 24;
+
+  img.alt = emoji
 
   let codepoints = codepointString(emoji);
-  el.style.setProperty(
-    "--emoji-url",
-    `url("${config.emoji_url}/${style}/${codepoints}.svg")`
-  );
+  img.src = `${config.emoji_url}/${style}/${codepoints}.svg`
 
-  return el;
+  pic.append(img)
+  pic.classList = 'emoji'
+
+  return pic;
 };
 
 /** @param {string} text */
